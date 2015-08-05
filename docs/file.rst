@@ -128,7 +128,7 @@ Now read the file we just created
 
     >>> fobj = open('ircnicks.txt')
     >>> s = fobj.read()
-    >>> print s
+    >>> print(s)
     powerpork
     indrag
     mishti
@@ -182,41 +182,6 @@ The output
 
 Here we used a new function *enumerate(iterableobject)*, which returns the index number and the value from the iterable object.
 
-Random seeking in a file
-========================
-
-You can also randomly move around inside a file using *seek()* method. It takes two arguments , offset and whence. To know more about it let us read what Python help tells us
-
-seek(...)
-seek(offset[, whence]) -> None. Move to new file position.
-Argument offset is a byte count. Optional argument whence defaults to
-0 (offset from start of file, offset should be >= 0); other values are 1
-(move relative to current position, positive or negative), and 2 (move
-relative to end of file, usually negative, although many platforms allow
-seeking beyond the end of a file). If the file is opened in text mode,
-only offsets returned by tell() are legal. Use of other offsets causes
-undefined behavior.
-Note that not all file objects are speakable.
-
-Let us see one example
-
-::
-
-    >>> fobj = open('/tmp/tempfile', 'w')
-    >>> fobj.write('0123456789abcdef')
-    >>> fobj.close()
-    >>> fobj = open('/tmp/tempfile')
-    >>> fobj.tell()    #tell us the offset position
-    0L
-    >>> fobj.seek(5) # Goto 5th byte
-    >>> fobj.tell()
-    5L
-    >>> fobj.read(1) #Read 1 byte
-    '5'
-    >>> fobj.seek(-3, 2) # goto 3rd byte from the end
-    >>> fobj.read() #Read till the end of the file
-    'def'
-
 Count spaces, tabs and new lines in a file
 ==========================================
 
@@ -237,7 +202,7 @@ Let us try to write an application which will count the spaces, tabs, and lines 
 
         :arg path: Path of the text file to parse
 
-        :return: A tuple with count of spacaes, tabs and lines. 
+        :return: A tuple with count of spacaes, tabs and lines.
         """
         fd = open(path)
         i = 0
@@ -285,7 +250,7 @@ In real life scenarios we should try to use `with` statement. It will take care 
     >>> with open('setup.py') as fobj:
     ...     for line in fobj:
     ...         print line,
-    ... 
+    ...
     #!/usr/bin/env python
     """Factorial project"""
     from setuptools import find_packages, setup
@@ -308,14 +273,14 @@ Let us write some real code
 ===========================
 
 Do you know how many CPU(s) are there in your processor? or what is the model name?
-Let us write some code which can help us to know these things. 
+Let us write some code which can help us to know these things.
 
-If you are in Linux, then you can actually view the output of the *lscpu* command first. 
+If you are in Linux, then you can actually view the output of the *lscpu* command first.
 You can actually find the information in a file located at */proc/cpuinfo*.
 
 Now try to write code which will open the file in read only mode and then read the file
 line by line and find out the number of CPU(s).
 
-.. tip:: Always remember to read files line by line than reading them as a whole. Sometimes you may have to read files which are way bigger than your available RAM. 
+.. tip:: Always remember to read files line by line than reading them as a whole. Sometimes you may have to read files which are way bigger than your available RAM.
 
 After you do this, try to write your own lscpu command in Python :)

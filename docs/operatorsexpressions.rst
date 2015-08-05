@@ -35,7 +35,7 @@ The code
 ::
 
     #!/usr/bin/env python3
-    days = int(nput("Enter days: "))
+    days = int(input("Enter days: "))
     months = days / 30
     days = days % 30
     print("Months = %d Days = %d" % (months, days))
@@ -133,10 +133,10 @@ Shorthand Operator
     25
     >>> a /= 3
     >>> a
-    8
+    8.333333333333334
     >>> a += (26 * 32)
     >>> a
-    840
+    840.3333333333334
 
 shorthand.py example
 
@@ -171,16 +171,16 @@ One example code used to show expressions
 
 ::
 
-    #!/usr/bin/env python
+    #!/usr/bin/env python3
     a = 9
     b = 12
     c = 3
     x = a - b / 3 + c * 2 - 1
     y = a - b / (3 + c) * (2 - 1)
     z = a - (b / (3 + c) * 2) - 1
-    print "X = ", x
-    print "Y = ", y
-    print "Z = ", z
+    print("X = ", x)
+    print("Y = ", y)
+    print("Z = ", z)
 
 The output
 
@@ -262,7 +262,7 @@ This is a program to evaluate the quadratic equation
     c = int(input("Enter value of c: "))
     d = b * b - 4 * a * c
     if d < 0:
-        print "ROOTS are imaginary"
+        print("ROOTS are imaginary")
     else:
         root1 = (-b + math.sqrt(d)) / (2.0 * a)
         root2 = (-b - math.sqrt(d)) / (2.0 * a)
